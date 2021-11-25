@@ -6,10 +6,12 @@ fstream miArchivo;//variable global para entrada y salida de datos
 string nombreArchivo,escritura,texto;//estructura de cadena de c++ cadenas de caracteres
 void escribir();
 void leer2();
+void leerSimple();
+string linea;
 int main(int argc, char** argv) {
 	
-	escribir();
-	leer2();
+//	escribir();
+	leerSimple();
 	return 0;
 }
 
@@ -97,3 +99,22 @@ cout<<"como se llama el archivo"<<endl;
 		cout<<"no se encontro el archivo";
 	}
 		}
+		
+		void leerSimple()
+{
+	miArchivo.open("dinero.txt",ios::in);
+	if(miArchivo.is_open()){
+	string linea;
+		while(getline(miArchivo,linea))
+		{
+			cout<<linea<<endl;
+			
+		}
+		miArchivo.close();
+	}else
+	{
+		cout<<"no se encontro el archivo"<<endl;
+	}
+
+	
+}
